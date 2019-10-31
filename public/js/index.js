@@ -11,19 +11,22 @@ var $submitBtn = $("#submit");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveUser: function(example) {
+
+  createUser: function(newuser) {
+
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/users",
-      data: JSON.stringify(example)
+
+      url: "users/admin/6jvbkoi4",
+      data: JSON.stringify(newuser)
     });
   },
-  getUser: function() {
+  getUsers: function() {
     return $.ajax({
-      url: "api/users",
+      url: "users/admin/6jvbkoi4",
       type: "GET"
     });
   },
