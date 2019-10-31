@@ -10,3 +10,4 @@ CREATE TABLE Users(
     weight INTEGER(20)
 )
 
+
