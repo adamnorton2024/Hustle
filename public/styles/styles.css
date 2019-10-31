@@ -1,3 +1,12 @@
+body {
+  background-color: #333;
+  background-image: url(../images/logo_hustle.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+}
+
 .list-group-item {
   line-height: 2.5;
 }
@@ -5,3 +14,26 @@
 .jumbotron {
   font-family: 'Heebo', sans-serif;
 }
+
+.btn {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+#btn-login {
+  background-color: #709ba3;
+  color: white;
+}
+
+#btn-new-user {
+  background-color: #8f577f;
+  color: white;
+}
+
+#btn-login:hover, #btn-new-user:hover {
+  background-color: #c4aa3b;
+  color: black;
+}
+
+
+
