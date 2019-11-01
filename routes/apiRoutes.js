@@ -71,7 +71,6 @@ function createSampleUsers() {
     var exampleuser = {
       username: "user" + i,
       password: "password" + i,
-      email: "user" + i + "@email.com",
       height: i,
       weight: i,
       goal: i,
