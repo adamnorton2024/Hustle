@@ -1,4 +1,10 @@
-body {
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#home {
   background-color: #333;
   background-image: url(../images/logo_hustle.png);
   background-size: 100%;
@@ -7,17 +13,34 @@ body {
   height: 100vh;
 }
 
-.list-group-item {
-  line-height: 2.5;
+p, h5 {
+  margin-bottom: 0;
+  padding: 0.25em;
 }
 
-.jumbotron {
+.modal-title {
   font-family: 'Heebo', sans-serif;
+}
+
+.list-group-item {
+  line-height: 2.5;
 }
 
 .btn {
   padding-top: 1em;
   padding-bottom: 1em;
+  border: 1px solid white;
+  font-size: 1.25;
+}
+
+.activity{
+  background-color: darkred;
+  border-radius: .5em;
+  color: white;
+}
+
+.icon {
+  font-size: 1.5em;
 }
 
 #btn-login {
@@ -33,6 +56,29 @@ body {
 #btn-login:hover, #btn-new-user:hover {
   background-color: #c4aa3b;
   color: black;
+}
+
+#submit, #login {
+  width: 10em;
+}
+
+
+.chart-text {
+  font-size: 0.5em;
+  fill: #000;
+  -moz-transform: translateY(0.25em);
+  -ms-transform: translateY(0.25em);
+  -webkit-transform: translateY(0.25em);
+  transform: translateY(0.25em);
+}
+
+.chart-text2 {
+  font-size: 0.5em;
+  fill: #000;
+  -moz-transform: translateY(-0.25em);
+  -ms-transform: translateY(-0.25em);
+  -webkit-transform: translateY(-0.25em);
+  transform: translateY(-0.25em);
 }
 
 
