@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "C5pkhi6r",
+    "password": "pivotlife101",
     "database": "exampledb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "C5pkhi6r",
+    "password": "pivotlife101",
     "database": "testdb",
     "host": "localhost",
     "dialect": "mysql",
