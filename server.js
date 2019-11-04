@@ -56,5 +56,8 @@ db.sequelize.sync(syncOptions).then(function() {
   });
 });
 
+//load passport strategies
+require('./config/passport/passport.js')(passport, db.User);
+
 module.exports = app;
 
