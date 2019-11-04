@@ -10,5 +10,8 @@ module.exports = function(sequelize, DataTypes) {
     weight: DataTypes.INTEGER,
     goal: DataTypes.INTEGER
   });
+  User.associate = function (models) {
+    User.hasMany(models.activities);
+  };
   return User;
 };
