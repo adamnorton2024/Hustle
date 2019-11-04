@@ -11,6 +11,10 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/charts", function(req, res) {
+    res.render("charts");
+  });
+
   // Load example page and pass in an example by id
   app.get("/user/:username", function(req, res) {
     var requestID = req.params.username;
