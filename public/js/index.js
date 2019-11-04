@@ -7,7 +7,8 @@ var height = $("#height");
 var goalWeight = $("goal-weight");
 // var $exampleText = $("#example-text");
 // var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
+var submitBtn = $("#submit");
+var loginBtn = $("#login");
 // var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
@@ -35,6 +36,13 @@ var API = {
     return $.ajax({
       url: "api/users/" + id,
       type: "DELETE"
+    });
+  },
+  login: function (user) {
+    return $.ajax({
+      url: "/login",
+      type: "POST",
+      data: user
     });
   }
 };
@@ -101,5 +109,16 @@ var handleFormSubmit = function (event) {
 
 };
 
-$submitBtn.on("click", handleFormSubmit);
+var handleLogin = function() {
+  var user = {
+    username: $("#name").val(),
+    password: $("#password").val()
+  }
+
+  API.login(user).then(function () {
+  });
+}
+
+submitBtn.on("click", handleFormSubmit);
+loginBtn.on("click", handleLogin)
 //$exampleList.on("click", ".delete", handleDeleteBtnClick);
