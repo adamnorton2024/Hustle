@@ -5,11 +5,8 @@ var confirmPassword = $("#confirm-password");
 var currentWeight = $("#current-weight");
 var height = $("#height");
 var goalWeight = $("goal-weight");
-// var $exampleText = $("#example-text");
-// var $exampleDescription = $("#example-description");
 var submitBtn = $("#submit");
 var loginBtn = $("#login");
-// var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -19,13 +16,11 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-
       url: "/api/activities",
       data: JSON.stringify(newactivity)
     });
   },
   createUser: function (newuser) {
-
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -57,42 +52,14 @@ var API = {
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-// var refreshUsers = function() {
-//   API.getUser().then(function(data) {
-//     var $users = data.map(function(user) {
-//       var $a = $("<a>")
-//         .text(user.text)
-//         .attr("href", "/user/" + user.id);
-
-//       var $li = $("<li>")
-//         .attr({
-//           class: "list-group-item",
-//           "data-id": user.id
-//         })
-//         .append($a);
-
-//       var $button = $("<button>")
-//         .addClass("btn btn-danger float-right delete")
-//         .text("ｘ");
-
-//       $li.append($button);
-
-//       return $li;
-//     });
-
-//     $userList.empty();
-//     $userList.append($users);
-//   });
-// };
-
 // handleFormSubmit is called whenever we submit a new user
 // Save the new new to the db and refresh the list
 var handleFormSubmit = function (event) {
   event.preventDefault();
-
   var newUser = {
+    name: $("#new-name").val(),
     username: $("#new-user-name").val().trim(),
+    gender: $("#genderSelect").val(),
     password: $("#new-password").val().trim(),
     weight: $("#current-weight").val().trim(),
     height: $("#height").val().trim(),
@@ -101,22 +68,16 @@ var handleFormSubmit = function (event) {
 
   if ($("#new-password").val().trim() !== $("#confirm-password").val().trim()) {
     alert("Your passwords do not match!");
-  }
-
-  else if (!(username.text && password.text && currentWeight && goalWeight)) {
+  } else if (!(username.text && password.text && currentWeight && goalWeight)) {
     alert("You must fill in all fields!");
     return;
-  }
-
-  else {
+  } else {
     API.createUser(newUser).then(function () {
       //refreshUsers();
       console.log("User Saved!");
     });
     $("#close-button").click();
   }
-
-
 };
 
 var handleLogin = function() {
@@ -131,20 +92,27 @@ var handleLogin = function() {
 
 submitBtn.on("click", handleFormSubmit);
 loginBtn.on("click", handleLogin)
-//$exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 $("#submitActivity").on("click", function () {
   event.preventDefault();
-  // console.log($("#userId").text());
   var newActivity = {
     UserId: $("#userId").text(),
     workoutDate: $("#date").val(),
-    activity: $("#activity").val(),
+    activity: $("#activitySelect").val(),
     distances: $("#distance").val()
   };
 
-  API.createActivity(newActivity).then(function() {
+  API.createActivity(newActivity).then(function () {
     console.log("New Activity Added");
   });
   location.reload();
+});
+
+//displaying data for the data for the user.
+$.get("/api/activities", function (data) {
+  console.log(data);
+  var userArray = [];
+  for (var i = 0; i < data.length; i++) {
+    if ()
+  }
 });

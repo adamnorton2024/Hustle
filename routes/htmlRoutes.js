@@ -20,8 +20,13 @@ module.exports = function(app) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/user/:id", function(req, res) {
-    db.User.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+  app.get("/:username", function(req, res) {
+    var requestID = req.params.username;
+    db.User.findAll({
+      where: { username: requestID },
+      include: [db.activities]
+    }).then(function(data) {
+      console.log(data);
       res.render("example", {
         Users: data
       });

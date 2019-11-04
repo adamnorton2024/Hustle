@@ -1,25 +1,34 @@
 var db = require("../models");
 
-module.exports = function(app) {
-  // Get all activities by user
-  app.get("/api/activities/:userid", function(req, res) {
-    db.activities.findAll({
-      where: { userId: req.params.userid }
-    }).then(function(activities) {
+module.exports = function (app) {
+  //get all activities
+  app.get("/api/activities/", function (req, res) {
+    db.activities.findAll({}).then(function (activities) {
       res.json(activities);
     });
   });
-  
+
+  // Get all activities by user
+  app.get("/api/activities/:userid", function (req, res) {
+    db.activities
+      .findAll({
+        where: { userId: req.params.userid }
+      })
+      .then(function (activities) {
+        res.json(activities);
+      });
+  });
+
   //Add new activities
-  app.post("/api/activities", function(req, res) {
-    db.activities.create(req.body).then(function(newActivity) {
+  app.post("/api/activities", function (req, res) {
+    db.activities.create(req.body).then(function (newActivity) {
       res.json(newActivity);
     });
   });
 
   // Get all users
-  app.get("/users/admin/6jvbkoi4", function(req, res) {
-    db.User.findAll({}).then(function(result) {
+  app.get("/users/admin/6jvbkoi4", function (req, res) {
+    db.User.findAll({}).then(function (result) {
       res.json(result);
     });
   });
@@ -81,8 +90,3 @@ module.exports = function(app) {
         updatedAt: i
       }
 
-      db.User.create(exampleuser);
-    }
-  }
-
-  createSampleUsers();
