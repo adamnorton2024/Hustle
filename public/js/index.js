@@ -13,7 +13,17 @@ var loginBtn = $("#login");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
+  createActivity: function (newactivity) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
 
+      url: "/api/activities",
+      data: JSON.stringify(newactivity)
+    });
+  },
   createUser: function (newuser) {
 
     return $.ajax({
@@ -122,3 +132,19 @@ var handleLogin = function() {
 submitBtn.on("click", handleFormSubmit);
 loginBtn.on("click", handleLogin)
 //$exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+$("#submitActivity").on("click", function () {
+  event.preventDefault();
+  // console.log($("#userId").text());
+  var newActivity = {
+    UserId: $("#userId").text(),
+    workoutDate: $("#date").val(),
+    activity: $("#activity").val(),
+    distances: $("#distance").val()
+  };
+
+  API.createActivity(newActivity).then(function() {
+    console.log("New Activity Added");
+  });
+  location.reload();
+});
