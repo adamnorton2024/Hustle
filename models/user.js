@@ -6,10 +6,12 @@ module.exports = function(sequelize, DataTypes) {
       unique: true
     },
     password: DataTypes.STRING,
-    email: DataTypes.STRING,
     height: DataTypes.INTEGER,
     weight: DataTypes.INTEGER,
     goal: DataTypes.INTEGER
   });
+  User.associate = function (models) {
+    User.hasMany(models.activities);
+  };
   return User;
 };
