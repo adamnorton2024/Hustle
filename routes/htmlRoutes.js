@@ -11,18 +11,20 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/charts", function(req, res) {
-    res.render("charts");
+  app.get("/stats", function(req, res) {
+    db.Example.findAll({}).then(function(dbExamples) {
+      res.render("stats", {
+        msg: "Welcome!",
+        examples: dbExamples
+      });
+    });
   });
 
   // Load example page and pass in an example by id
-  app.get("/user/:username", function(req, res) {
-    var requestID = req.params.username;
-    db.User.findAll({
-      where: { username: requestID },
-      include: [db.activities]
-    }).then(function(data) {
-      console.log(data);
+  app.get("/example/:id", function(req, res) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
       res.render("example", {
         Users: data
       });
