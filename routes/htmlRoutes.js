@@ -14,10 +14,12 @@ module.exports = function(app) {
   app.get("/stats", function(req, res) {
     res.render("stats");
   });
-  
+
+  app.get("/details", function(req, res) {
+    res.render("details");
+  });
 
   // Load example page and pass in an example by id
-
   app.get("/:username", function(req, res) {
     var requestID = req.params.username;
     db.User.findAll({
@@ -25,7 +27,6 @@ module.exports = function(app) {
       include: [db.activities]
     }).then(function(data) {
       console.log(data);
-
       res.render("example", {
         Users: data
       });
