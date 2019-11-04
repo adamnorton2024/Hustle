@@ -12,7 +12,7 @@ module.exports = function(app) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/user/:username", function(req, res) {
+  app.get("/:username", function(req, res) {
     var requestID = req.params.username;
     db.User.findAll({
       where: { username: requestID },
