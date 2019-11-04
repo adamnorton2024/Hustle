@@ -12,13 +12,9 @@ module.exports = function(app) {
   });
 
   app.get("/stats", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("stats", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
+    res.render("stats");
   });
+  
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {

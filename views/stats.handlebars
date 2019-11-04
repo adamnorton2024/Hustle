@@ -16,20 +16,20 @@
 </style>
 
 
-<div class="row w3-margin-bottom">
-  <div class="col-md-3 text-center">
-    <div class="container w3-metro-purple w3-text-white w3-padding-16">
-      <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
-      <div class="w3-right">
+<div class="row d-flex flex-row"></div>
+  <div class="col-sm-2 text-center">
+    <div class="activity" id="total-run">
+      <div class=""><i class="fa fa-running w3-xxxlarge"></i></div>
+      <div class="">
         <h3>52</h3>
       </div>
-      <div class="w3-clear"></div>
+      <div class=""></div>
       <h4>Runs</h4>
     </div>
   </div>
-  <div class="col-md-3 text-center">
-    <div class="container w3-metro-orange w3-padding-16">
-      <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+  <div class="col-sm-2 text-center">
+    <div class="activity" id="total-bike">
+      <div class="w3-left"><i class="fa fa-biking w3-xxxlarge"></i></div>
       <div class="w3-right">
         <h3>99</h3>
       </div>
@@ -37,9 +37,9 @@
       <h4>Bike</h4>
     </div>
   </div>
-  <div class="col-md-3 text-center">
-    <div class="container w3-flat-pomegranate w3-text-white w3-padding-16">
-      <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+  <div class="col-sm-2 text-center">
+    <div class="activity" id="total-swim">
+      <div class="w3-left"><i class="fa fa-swimmer w3-xxxlarge"></i></div>
       <div class="w3-right">
         <h3>23</h3>
       </div>
@@ -47,8 +47,8 @@
       <h4>Swim</h4>
     </div>
   </div>
-  <div class="col-md-3 text-center">
-    <div class="container w3-orange w3-text-white w3-padding-16">
+  <div class="col-sm-2 text-center">
+    <div class="activity" id="total-row">
       <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
       <div class="w3-right">
         <h3>50</h3>
@@ -62,10 +62,79 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
+<div class="container graph-donut">
+    <svg width="100%" height="100%" viewBox="0 0 42 42" class="donut">
+        <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#333"></circle>
+        <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="4"></circle>
 
+        <circle class="donut-segment" id="segRun" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#ce4b99" stroke-width="4"                stroke-dasharray="40 60" stroke-dashoffset="25"></circle>
+        <circle class="donut-segment" id="segBike" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#b1c94e" stroke-width="4"
+            stroke-dasharray="20 80" stroke-dashoffset="85"></circle>
+        <circle class="donut-segment" id="segSwim" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#377bbc" stroke-width="4"
+            stroke-dasharray="30 70" stroke-dashoffset="65"></circle>
+        <circle class="donut-segment" id="segRow" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#377bbc" stroke-width="4"
+            stroke-dasharray="30 70" stroke-dashoffset="65"></circle>
+
+        <g class="chart-text">
+            <text x="50%" y="50%" class="chart-text">
+                Activity
+            </text>
+            <text x="50%" y="50%" class="chart-text2 align-center">
+                Summary
+            </text>
+        </g>
+    </svg>
+</div>
     </div>
     <div class="col-md-9">
-      
+      <div class="container graph-bar">
+        <div class="row activity my-2 align-middle" id="act1">
+            <div class="col-sm-3 date">
+                <h5>FRI</h5>
+                <p>11/1</p>
+            </div>
+            <div class="col-sm-3 icon d-flex align-items-center ml-auto">
+                <i class="fal fa-running icon ml-auto"></i>
+            </div>
+        </div>
+        <div class="row activity my-2" id="act2">
+            <div class="col-sm-3 date">
+                <h5>THU</h5>
+                <p>10/31</p>
+            </div>
+            <div class="col-sm-3 icon d-flex align-items-center ml-auto">
+                <i class="fal fa-swimmer icon ml-auto"></i>
+            </div>
+        </div>
+        <div class="row activity my-2" id="act3">
+            <div class="col-sm-3 date">
+                <h5>WED</h5>
+                <p>10/30</p>
+            </div>
+            <div class="col-sm-3 icon d-flex align-items-center ml-auto">
+                <i class="fal fa-biking icon ml-auto"></i>
+            </div>
+        </div>
+        <div class="row activity my-2" id="act4">
+            <div class="col-sm-3 date">
+                <h5>TUE</h5>
+                <p>10/29</p>
+            </div>
+            <div class="col-sm-3 icon d-flex align-items-center ml-auto">
+                <i class="fal fa-running icon ml-auto"></i>
+            </div>
+        </div>
+        <div class="row activity my-2" id="act5">
+            <div class="col-sm-3 date">
+                <h5>MON</h5>
+                <p>10/28</p>
+            </div>
+            <div class="col-sm-3 icon d-flex align-items-center ml-auto">
+                <i class="fal fa-biking icon ml-auto"></i>
+            </div>
+        </div>
+</div>
+
     </div>
   </div>
 </div>
