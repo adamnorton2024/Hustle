@@ -14,7 +14,10 @@ module.exports = function(app) {
   app.get("/stats", function(req, res) {
     res.render("stats");
   });
-  
+
+  app.get("/details", function(req, res) {
+    res.render("details");
+  });
 
   // Load example page and pass in an example by id
   app.get("/user/:id", function(req, res) {
