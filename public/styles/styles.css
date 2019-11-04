@@ -13,6 +13,22 @@
   height: 100vh;
 }
 
+#total-bike{
+  background-color: #709ba3;
+}
+
+#total-run{
+  background-color: #c4aa3b;
+}
+
+#total-swim{
+  background-color: #8f577f;
+}
+
+#total-row{
+  background-color: #5f487e;
+}
+
 p, h5 {
   margin-bottom: 0;
   padding: 0.25em;
