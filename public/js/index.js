@@ -1,99 +1,131 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var username = $("#new-user-name")
+var password = $("#new-password");
+var confirmPassword = $("#confirm-password");
+var currentWeight = $("#current-weight");
+var height = $("#height");
+var goalWeight = $("goal-weight");
+// var $exampleText = $("#example-text");
+// var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+// var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  createActivity: function (newactivity) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+
+      url: "/api/activities",
+      data: JSON.stringify(newactivity)
     });
   },
-  getExamples: function() {
+  createUser: function (newuser) {
+
     return $.ajax({
-      url: "api/examples",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+
+      url: "users/admin/6jvbkoi4",
+      data: JSON.stringify(newuser)
+    });
+  },
+  getUsers: function () {
+    return $.ajax({
+      url: "users/admin/6jvbkoi4",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteUser: function (id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/users/" + id,
       type: "DELETE"
     });
   }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+// var refreshUsers = function() {
+//   API.getUser().then(function(data) {
+//     var $users = data.map(function(user) {
+//       var $a = $("<a>")
+//         .text(user.text)
+//         .attr("href", "/user/" + user.id);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
+//       var $li = $("<li>")
+//         .attr({
+//           class: "list-group-item",
+//           "data-id": user.id
+//         })
+//         .append($a);
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+//       var $button = $("<button>")
+//         .addClass("btn btn-danger float-right delete")
+//         .text("ｘ");
 
-      $li.append($button);
+//       $li.append($button);
 
-      return $li;
-    });
+//       return $li;
+//     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
+//     $userList.empty();
+//     $userList.append($users);
+//   });
+// };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+// handleFormSubmit is called whenever we submit a new user
+// Save the new new to the db and refresh the list
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var newUser = {
+    username: $("#new-user-name").val().trim(),
+    password: $("#new-password").val().trim(),
+    weight: $("#current-weight").val().trim(),
+    height: $("#height").val().trim(),
+    goal: $("#goal-weight").val().trim()
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+  if ($("#new-password").val().trim() !== $("#confirm-password").val().trim()) {
+    alert("Your passwords do not match!");
+  }
+
+  else if (!(username.text && password.text && currentWeight && goalWeight)) {
+    alert("You must fill in all fields!");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
-  });
+  else {
+    API.createUser(newUser).then(function () {
+      //refreshUsers();
+      console.log("User Saved!");
+    });
+    $("#close-button").click();
+  }
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
-
-// Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+//$exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+$("#submitActivity").on("click", function () {
+  event.preventDefault();
+  // console.log($("#userId").text());
+  var newActivity = {
+    UserId: $("#userId").text(),
+    workoutDate: $("#date").val(),
+    activity: $("#activity").val(),
+    distances: $("#distance").val()
+  };
+
+  API.createActivity(newActivity).then(function() {
+    console.log("New Activity Added");
+  });
+  location.reload();
+});

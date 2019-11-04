@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.User.findAll({}).then(function(dbExamples) {
       res.render("index", {
         msg: "Welcome!",
         examples: dbExamples
@@ -26,7 +26,7 @@ module.exports = function(app) {
       dbExample
     ) {
       res.render("example", {
-        example: dbExample
+        Users: data
       });
     });
   });
