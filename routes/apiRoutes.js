@@ -78,6 +78,12 @@ module.exports = function (app) {
       res.json(result);
     });
   });
+
+  app.get("/leaderboard/:activity", function (req, res) {
+    db.activities.findAll({where: { activity: req.params.activity}}).then(function (result) {
+      res.render("details", result);
+    });
+  });
 };
 
 function createSampleUsers() {

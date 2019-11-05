@@ -20,16 +20,15 @@ module.exports = function(app) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/:username", function(req, res) {
-    var requestID = req.params.username;
-    db.User.findAll({
-      where: { username: requestID },
-      include: [db.activities]
+  app.get("/login/:activity", function(req, res) {
+    var activity = req.params.activity;
+    db.activities.findAll({
+      where: { activity: activity }
     }).then(function(data) {
-      console.log(data);
-      res.render("stats", {
-        Users: data
-      });
+      console.log("hello");
+      console.log(data[0].dataValues);
+      console.log("hello");
+      res.render("example", data[0]);
     });
   });
 
@@ -37,4 +36,6 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     res.render("404");
   });
+  
+  
 };
