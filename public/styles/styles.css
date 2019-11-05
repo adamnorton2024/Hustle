@@ -76,6 +76,10 @@ p, h5 {
   color: white;
 }
 
+.bars {
+  height: 3em;
+}
+
 .icon {
   font-size: 1.5em;
 }
@@ -126,6 +130,18 @@ p, h5 {
 .modal, .modal-header, .modal-body{
   background-color: #222;
   border: 2px solid #555;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover{
+  background-color: darkred;
 }
 
 
