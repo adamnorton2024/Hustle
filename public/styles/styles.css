@@ -1,6 +1,5 @@
 
 
-
 #home {
   background-color: #222;
   background-image: url(../images/logo_hustle.png);
@@ -9,6 +8,9 @@
   background-position: center center;
   height: 100vh;
 }
+ .workout-name{
+   margin-left: 2px;
+ }
 
 body {
   background-color: #111;
