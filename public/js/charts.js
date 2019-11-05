@@ -95,11 +95,7 @@ function graph() {
 
     document
       .getElementById("segSwim")
-<<<<<<< HEAD
-      .setAttribute("stroke-dasharray", dashArrayBike);
-=======
       .setAttribute("stroke-dasharray", dashArraySwim);
->>>>>>> master
 
     document
       .getElementById("segSwim")
@@ -116,7 +112,3 @@ function graph() {
 
   drawDonutGraph();
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> master

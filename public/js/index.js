@@ -171,10 +171,6 @@ $.get("/api/activities", function (data) {
   $("#total-bike").text(totalBiking);
   $("#total-workouts").text(total);
   graph();
-<<<<<<< HEAD
-})
-
-=======
 
   for (var i = 0; i < 5; i++) {
     if (i === 0) {
@@ -320,4 +316,23 @@ function iconandactivity(i) {
     $(idchange).addClass("hike");
   }
 }
->>>>>>> master
+
+$('#act0').click(function(){
+
+});
+
+$('#act1').click(function () {
+
+});
+
+$('#act2').click(function () {
+
+});
+
+$('#act3').click(function () {
+
+});
+
+$('#act4').click(function () {
+
+});
