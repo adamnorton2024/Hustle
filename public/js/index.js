@@ -1,5 +1,5 @@
 // Get references to page elements
-var username = $("#new-user-name")
+var username = $("#new-user-name");
 var password = $("#new-password");
 var confirmPassword = $("#confirm-password");
 var currentWeight = $("#current-weight");
@@ -28,7 +28,11 @@ var API = {
       type: "POST",
 
       url: "users/admin/6jvbkoi4",
-      data: JSON.stringify(newuser)
+      data: JSON.stringify(newuser),
+      success: (data, textStatus, jqXHR) => {
+      if ((typeof data.redirect) == "string")
+        window.location = data.redirect
+      }
     });
   },
   getUsers: function () {
@@ -58,15 +62,32 @@ var handleFormSubmit = function (event) {
   event.preventDefault();
   var newUser = {
     name: $("#new-name").val(),
-    username: $("#new-user-name").val().trim(),
+    username: $("#new-user-name")
+      .val()
+      .trim(),
     gender: $("#genderSelect").val(),
-    password: $("#new-password").val().trim(),
-    weight: $("#current-weight").val().trim(),
-    height: $("#height").val().trim(),
-    goal: $("#goal-weight").val().trim()
+    password: $("#new-password")
+      .val()
+      .trim(),
+    weight: $("#current-weight")
+      .val()
+      .trim(),
+    height: $("#height")
+      .val()
+      .trim(),
+    goal: $("#goal-weight")
+      .val()
+      .trim()
   };
 
-  if ($("#new-password").val().trim() !== $("#confirm-password").val().trim()) {
+  if (
+    $("#new-password")
+      .val()
+      .trim() !==
+    $("#confirm-password")
+      .val()
+      .trim()
+  ) {
     alert("Your passwords do not match!");
   } else if (!(username.text && password.text && currentWeight && goalWeight)) {
     alert("You must fill in all fields!");
@@ -84,14 +105,13 @@ var handleLogin = function () {
   var user = {
     username: $("#name").val(),
     password: $("#password").val()
-  }
+  };
 
-  API.login(user).then(function () {
-  });
-}
+  API.login(user).then(function () { });
+};
 
 submitBtn.on("click", handleFormSubmit);
-loginBtn.on("click", handleLogin)
+loginBtn.on("click", handleLogin);
 
 $("#submitActivity").on("click", function () {
   event.preventDefault();
@@ -108,13 +128,16 @@ $("#submitActivity").on("click", function () {
   location.reload();
 });
 
+var totalHike;
+var totalSwim;
+var totalRunning;
+var totalBiking;
 //displaying data for the data for the user.
-$.get("/api/activities", function(data) {
+$.get("/api/activities", function (data) {
   console.log(data);
   var userArray = [];
   var user = $("#userId").text();
   console.log(user);
-  console.log($("#name").text());
   for (var i = 0; i < data.length; i++) {
     if (data[i].UserId == user) {
       // console.log("hello");
@@ -122,4 +145,29 @@ $.get("/api/activities", function(data) {
     }
   }
   console.log(userArray);
-});
+  totalHike = 0;
+  totalSwim = 0;
+  totalRunning = 0;
+  totalBiking = 0;
+  for (var i = 0; i < userArray.length; i++) {
+    if (userArray[i].activity == "Hiking") {
+      totalHike += userArray[i].distances;
+    } else if (userArray[i].activity == "Swimming") {
+      totalSwim += userArray[i].distances;
+    } else if (userArray[i].activity == "Running") {
+      totalRunning += userArray[i].distances;
+    } else if (userArray[i].activity == "Biking") {
+      totalBiking += userArray[i].distances;
+    }
+  }
+  console.log(totalHike);
+  console.log(totalSwim);
+  console.log(totalRunning);
+  console.log(totalBiking);
+  $("#total-run").text(totalRunning);
+  $("#total-swim").text(totalSwim);
+  $("#total-hike").text(totalHike);
+  $("#total-bike").text(totalBiking);
+  graph();
+})
+

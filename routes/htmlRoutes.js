@@ -27,7 +27,7 @@ module.exports = function(app) {
       include: [db.activities]
     }).then(function(data) {
       console.log(data);
-      res.render("example", {
+      res.render("stats", {
         Users: data
       });
     });

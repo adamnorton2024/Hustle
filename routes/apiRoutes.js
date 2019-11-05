@@ -41,7 +41,7 @@ module.exports = function (app) {
       console.log(result.password);
       if (req.body.password == result.password) {
         console.log("logged in!");
-        res.redirect("/users/admin/6jvbkoi4"); 
+        res.redirect("/" + result.username); 
       }
       else {
         console.log("login failed")
@@ -65,9 +65,11 @@ module.exports = function (app) {
 
   // Create a new user
   app.post("/users/admin/6jvbkoi4", function (req, res) {
+    var username = req.body.username;
     db.User.create(req.body).then(function (result) {
-      res.json(result);
+      console.log(username);
     });
+    res.send({redirect: "/"+ username});
   });
 
   // Delete a user
