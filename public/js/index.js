@@ -160,6 +160,10 @@ $.get("/api/activities", function (data) {
   console.log(totalSwim);
   console.log(totalRunning);
   console.log(totalBiking);
+  $("#total-run").text(totalRunning);
+  $("#total-swim").text(totalSwim);
+  $("#total-hike").text(totalHike);
+  $("#total-bike").text(totalBiking);
   graph();
 })
 
