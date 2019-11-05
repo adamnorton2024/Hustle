@@ -41,7 +41,7 @@ module.exports = function (app) {
       console.log(result.password);
       if (req.body.password == result.password) {
         console.log("logged in!");
-        res.redirect("/user/user1");
+        res.redirect("/users/admin/6jvbkoi4"); 
       }
       else {
         console.log("login failed")
