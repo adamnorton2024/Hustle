@@ -1,12 +1,12 @@
-
-
+{{#each Users}}
 <div class="container mb-4 animated slideInDown">
   <div class="row mt-3">
     <div class="col-sm-6 mr-auto text-left p-0">
       <h1><span id="total-workouts">197</span> Total Activities</h1>
     </div>
     <div class="col-sm-6 ml-auto text-right">
-      <p>Welcome, <span id="user-name"></span></p>
+      <p>Welcome, <span id="user-name">{{name}}</span></p>
+      <p id="userId" hidden>{{id}}</p>
     </div>
   </div>
 
@@ -29,9 +29,9 @@
       <h3 id="total-swim">23</h3>
       <h4>Swim</h4>
     </div>
-    <div class="col-sm-2 ml-1 activity hike" id="total-hike">
+    <div class="col-sm-2 ml-1 activity hike">
       <div class=""><i class="fal fa-hiking"></i></div>
-      <h3 id="total-swim">23</h3>
+      <h3 id="total-hike">23</h3>
       <h4>Hike</h4>
     </div>
   
@@ -209,3 +209,4 @@
     </div>
   </div>
 </div>
+{{/each}}
