@@ -10,7 +10,7 @@ var loginBtn = $("#login");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  createActivity: function (newactivity) {
+  createActivity: function(newactivity) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -20,7 +20,7 @@ var API = {
       data: JSON.stringify(newactivity)
     });
   },
-  createUser: function (newuser) {
+  createUser: function(newuser) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -35,19 +35,19 @@ var API = {
       }
     });
   },
-  getUsers: function () {
+  getUsers: function() {
     return $.ajax({
       url: "users/admin/6jvbkoi4",
       type: "GET"
     });
   },
-  deleteUser: function (id) {
+  deleteUser: function(id) {
     return $.ajax({
       url: "api/users/" + id,
       type: "DELETE"
     });
   },
-  login: function (user) {
+  login: function(user) {
     return $.ajax({
       url: "/login",
       type: "POST",
@@ -58,7 +58,7 @@ var API = {
 
 // handleFormSubmit is called whenever we submit a new user
 // Save the new new to the db and refresh the list
-var handleFormSubmit = function (event) {
+var handleFormSubmit = function(event) {
   event.preventDefault();
   var newUser = {
     name: $("#new-name").val(),
@@ -93,7 +93,7 @@ var handleFormSubmit = function (event) {
     alert("You must fill in all fields!");
     return;
   } else {
-    API.createUser(newUser).then(function () {
+    API.createUser(newUser).then(function() {
       //refreshUsers();
       console.log("User Saved!");
     });
@@ -101,19 +101,19 @@ var handleFormSubmit = function (event) {
   }
 };
 
-var handleLogin = function () {
+var handleLogin = function() {
   var user = {
     username: $("#name").val(),
     password: $("#password").val()
   };
 
-  API.login(user).then(function () { });
+  API.login(user).then(function() {});
 };
 
 submitBtn.on("click", handleFormSubmit);
 loginBtn.on("click", handleLogin);
 
-$("#submitActivity").on("click", function () {
+$("#submitActivity").on("click", function() {
   event.preventDefault();
   var newActivity = {
     UserId: $("#userId").text(),
@@ -122,7 +122,7 @@ $("#submitActivity").on("click", function () {
     distances: $("#distance").val()
   };
 
-  API.createActivity(newActivity).then(function () {
+  API.createActivity(newActivity).then(function() {
     console.log("New Activity Added");
   });
   location.reload();
@@ -133,9 +133,10 @@ var totalSwim;
 var totalRunning;
 var totalBiking;
 //displaying data for the data for the user.
-$.get("/api/activities", function (data) {
+$.get("/api/activities", function(data) {
   console.log(data);
   var userArray = [];
+  var sortedArray = [];
   var user = $("#userId").text();
   console.log(user);
   for (var i = 0; i < data.length; i++) {
@@ -144,7 +145,9 @@ $.get("/api/activities", function (data) {
       userArray.push(data[i]);
     }
   }
+  sortedArray = userArray.sort();
   console.log(userArray);
+  console.log(sortedArray);
   totalHike = 0;
   totalSwim = 0;
   totalRunning = 0;
@@ -169,5 +172,148 @@ $.get("/api/activities", function (data) {
   $("#total-hike").text(totalHike);
   $("#total-bike").text(totalBiking);
   graph();
-})
 
+  for (var i = 0; i < 5; i++) {
+    if (i === 0) {
+      var date = userArray[0].workoutDate;
+      $("#date0").text(date.substring(5, 10));
+      if (userArray[i].activity == "Biking") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("bike");
+        $(otherid).addClass("fa-biking");
+      } else if (userArray[i].activity == "Running") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("run");
+        $(otherid).addClass("fa-running");
+      } else if (userArray[i].activity == "Swimming") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("swim");
+        $(otherid).addClass("fa-swimmer");
+      } else if (userArray[i].activity == "Hiking") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("hike");
+        $(otherid).addClass("fa-hiking");
+      }
+    }
+    if (i === 1) {
+      var date = userArray[1].workoutDate;
+      $("#date1").text(date.substring(5, 10));
+      if (userArray[i].activity == "Biking") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("bike");
+        $(otherid).addClass("fa-biking");
+      } else if (userArray[i].activity == "Running") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("run");
+        $(otherid).addClass("fa-running");
+      } else if (userArray[i].activity == "Swimming") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("swim");
+        $(otherid).addClass("fa-swimmer");
+      } else if (userArray[i].activity == "Hiking") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("hike");
+        $(otherid).addClass("fa-hiking");
+      }
+    }
+    if (i === 2) {
+      var date = userArray[2].workoutDate;
+      $("#date2").text(date.substring(5, 10));
+      if (userArray[i].activity == "Biking") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("bike");
+        $(otherid).addClass("fa-biking");
+      } else if (userArray[i].activity == "Running") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("run");
+        $(otherid).addClass("fa-running");
+      } else if (userArray[i].activity == "Swimming") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("swim");
+        $(otherid).addClass("fa-swimmer");
+      } else if (userArray[i].activity == "Hiking") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("hike");
+        $(otherid).addClass("fa-hiking");
+      }
+    }
+    if (i === 3) {
+      var date = userArray[3].workoutDate;
+      $("#date3").text(date.substring(5, 10));
+      if (userArray[i].activity == "Biking") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("bike");
+        $(otherid).addClass("fa-biking");
+      } else if (userArray[i].activity == "Running") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("run");
+        $(otherid).addClass("fa-running");
+      } else if (userArray[i].activity == "Swimming") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("swim");
+        $(otherid).addClass("fa-swimmer");
+      } else if (userArray[i].activity == "Hiking") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("hike");
+        $(otherid).addClass("fa-hiking");
+      }
+    }
+    if (i === 4) {
+      var date = userArray[4].workoutDate;
+      $("#date4").text(date.substring(5, 10));
+      if (userArray[i].activity == "Biking") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("bike");
+        $(otherid).addClass("fa-biking");
+      } else if (userArray[i].activity == "Running") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("run");
+        $(otherid).addClass("fa-running");
+      } else if (userArray[i].activity == "Swimming") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("swim");
+        $(otherid).addClass("fa-swimmer");
+      } else if (userArray[i].activity == "Hiking") {
+        var idchange = "#act" + i;
+        var otherid = "#i" + i;
+        $(idchange).addClass("hike");
+        $(otherid).addClass("fa-hiking");
+      }
+    }
+  }
+});
+
+function iconandactivity(i) {
+  if (userArray[i].activity == "Biking") {
+    var idchange = "#act" + i;
+    $(idchange).addClass("bike");
+  } else if (userArray[i].activity == "Running") {
+    var idchange = "#act" + i;
+    $(idchange).addClass("run");
+  } else if (userArray[i].activity == "Swimming") {
+    var idchange = "#act" + i;
+    $(idchange).addClass("swim");
+  } else if (userArray[i].activity == "Hiking") {
+    var idchange = "#act" + i;
+    $(idchange).addClass("hike");
+  }
+}
