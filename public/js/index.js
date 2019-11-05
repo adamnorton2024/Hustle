@@ -80,7 +80,7 @@ var handleFormSubmit = function (event) {
   }
 };
 
-var handleLogin = function() {
+var handleLogin = function () {
   var user = {
     username: $("#name").val(),
     password: $("#password").val()
@@ -109,10 +109,17 @@ $("#submitActivity").on("click", function () {
 });
 
 //displaying data for the data for the user.
-$.get("/api/activities", function (data) {
+$.get("/api/activities", function(data) {
   console.log(data);
   var userArray = [];
+  var user = $("#userId").text();
+  console.log(user);
+  console.log($("#name").text());
   for (var i = 0; i < data.length; i++) {
-    if ()
+    if (data[i].UserId == user) {
+      // console.log("hello");
+      userArray.push(data[i]);
+    }
   }
+  console.log(userArray);
 });
