@@ -107,7 +107,7 @@ var handleLogin = function() {
     password: $("#password").val()
   };
 
-  API.login(user).then(function() {});
+  API.login(user).then(function () { });
 };
 
 submitBtn.on("click", handleFormSubmit);
@@ -133,7 +133,7 @@ var totalSwim;
 var totalRunning;
 var totalBiking;
 //displaying data for the data for the user.
-$.get("/api/activities", function(data) {
+$.get("/api/activities", function (data) {
   console.log(data);
   var userArray = [];
   var user = $("#userId").text();
@@ -169,6 +169,10 @@ $.get("/api/activities", function(data) {
   $("#total-hike").text(totalHike);
   $("#total-bike").text(totalBiking);
   graph();
+<<<<<<< HEAD
+})
+
+=======
 
   for (var i = 0; i < 5; i++) {
     if (i === 0) {
@@ -314,3 +318,4 @@ function iconandactivity(i) {
     $(idchange).addClass("hike");
   }
 }
+>>>>>>> master
