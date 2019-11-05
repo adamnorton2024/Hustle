@@ -47,9 +47,10 @@ module.exports = function(app) {
       console.log(result.password);
       if (req.body.password == result.password) {
         console.log("logged in!");
-        res.redirect("/" + result.username);
-      } else {
-        console.log("login failed");
+        res.redirect("/" + result.username); 
+      }
+      else {
+        console.log("login failed")
       }
     });
   });
@@ -71,12 +72,12 @@ module.exports = function(app) {
   });
 
   // Create a new user
-  app.post("/users/admin/6jvbkoi4", function(req, res) {
+  app.post("/users/admin/6jvbkoi4", function (req, res) {
     var username = req.body.username;
-    db.User.create(req.body).then(function(result) {
+    db.User.create(req.body).then(function (result) {
       console.log(username);
     });
-    res.send({ redirect: "/" + username });
+    res.send({redirect: "/"+ username});
   });
 
   // Delete a user
@@ -85,6 +86,12 @@ module.exports = function(app) {
       result
     ) {
       res.json(result);
+    });
+  });
+
+  app.get("/leaderboard/:activity", function (req, res) {
+    db.activities.findAll({where: { activity: req.params.activity}}).then(function (result) {
+      res.render("details", result);
     });
   });
 };
