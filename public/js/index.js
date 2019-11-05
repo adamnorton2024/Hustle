@@ -28,7 +28,11 @@ var API = {
       type: "POST",
 
       url: "users/admin/6jvbkoi4",
-      data: JSON.stringify(newuser)
+      data: JSON.stringify(newuser),
+      success: (data, textStatus, jqXHR) => {
+      if ((typeof data.redirect) == "string")
+        window.location = data.redirect
+      }
     });
   },
   getUsers: function () {
