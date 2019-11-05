@@ -1,12 +1,7 @@
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 
-}
 
 #home {
-  background-color: #333;
+  background-color: #222;
   background-image: url(../images/logo_hustle.png);
   background-size: 100%;
   background-repeat: no-repeat;
@@ -18,8 +13,14 @@
  }
 
 body {
-  background-color: #333;
+  background-color: #111;
   color: white;
+}
+
+.section {
+  background-color: #222;
+  border-radius: .5em;
+  border: 2px solid #333;
 }
 
 .card { 
@@ -30,19 +31,19 @@ body {
   border-radius: 50%;
 }
 
-#total-bike{
+.bike{
   background-color: #709ba3;
 }
 
-#total-run{
+.run{
   background-color: #c4aa3b;
 }
 
-#total-swim{
+.swim{
   background-color: #8f577f;
 }
 
-#total-row{
+.hike{
   background-color: #5f487e;
 }
 
@@ -67,7 +68,7 @@ p, h5 {
 }
 
 .activity{
-  background-color: darkred;
+  /* background-color: darkred; */
   border-radius: .5em;
   color: white;
 }
@@ -96,23 +97,22 @@ p, h5 {
 }
 
 
-.chart-text {
-  font-size: 0.5em;
-  fill: #000;
-  -moz-transform: translateY(0.25em);
-  -ms-transform: translateY(0.25em);
-  -webkit-transform: translateY(0.25em);
-  transform: translateY(0.25em);
+.achievement-gained{
+  width: 5em;
 }
 
-.chart-text2 {
-  font-size: 0.5em;
-  fill: #000;
-  -moz-transform: translateY(-0.25em);
-  -ms-transform: translateY(-0.25em);
-  -webkit-transform: translateY(-0.25em);
-  transform: translateY(-0.25em);
+.achievement{
+  width: 5em;
+  -webkit-filter: opacity(.1);
+  filter: opacity(.1);
+
 }
+
+.modal, .modal-header, .modal-body{
+  background-color: #222;
+  border: 2px solid #555;
+}
+
 
 
 

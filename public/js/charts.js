@@ -1,25 +1,25 @@
 // Type of workout totals
-var numRuns = 50;
-var numBike = 30;
-var numSwim = 10;
-var numRow = 10;
+var numRuns = 52;
+var numBike = 99;
+var numSwim = 23;
+var numHike = 23;
 
 // donut segment lengths
-var dSegLength1;
-var dSegLength2;
-var dSegLength3;
-var dSegLength4;
+var dSegLengthRun;
+var dSegLengthBike;
+var dSegLengthSwim;
+var dSegLengthHike;
 
-var dSegLength1b;
-var dSegLength2b;
-var dSegLength3b;
-var dSegLength4b;
+var dSegLengthRunb;
+var dSegLengthBikeb;
+var dSegLengthSwimb;
+var dSegLengthHikeb;
 
 // donut offsets
 var dOffsetRun;
 var dOffsetBike;
 var dOffsetSwim;
-var dOffsetRow;
+var dOffsetHike;
 
 // Bar Graphs - Change Percentages to get lengths
 $("#act1").css("width", "50%");
@@ -33,7 +33,7 @@ $("#act5").css("width", "89%");
 // Circumference(100) - All preceding segment's total length +  First segment's offset = Current segment offset
 // ex: 100 - 85 + 25 = 40
 function drawDonutGraph() {
-  var totalWorkouts = numRuns + numBike + numSwim + numRow;
+  var totalWorkouts = numRuns + numBike + numSwim + numHike;
 
   dSegLengthRun = (numRuns / totalWorkouts) * 100;
   dSegLengthRunb = 100 - dSegLengthRun;
@@ -44,9 +44,9 @@ function drawDonutGraph() {
   dSegLengthSwim = (numSwim / totalWorkouts) * 100;
   dSegLengthSwimb = 100 - dSegLengthSwim;
   console.log(dSegLengthSwim);
-  dSegLengthRow = (numRow / totalWorkouts) * 100;
-  dSegLengthRowb = 100 - dSegLengthRow;
-  console.log(dSegLengthRow);
+  dSegLengthHike = (numHike / totalWorkouts) * 100;
+  dSegLengthHikeb = 100 - dSegLengthHike;
+  console.log(dSegLengthHike);
 
   var dashArrayRun = dSegLengthRun.toString() + " " + dSegLengthRunb;
   console.log("dashArrayRun = " + dashArrayRun);
@@ -54,29 +54,29 @@ function drawDonutGraph() {
   console.log("dashArrayBike = " + dashArrayBike);
   var dashArraySwim = dSegLengthSwim.toString() + " " + dSegLengthSwimb;
   console.log("dashArraySwim = " + dashArraySwim);
-  var dashArrayRow = dSegLengthRow.toString() + " " + dSegLengthRowb;
-  console.log("dashArrayRow = " + dashArrayRow);
+  var dashArrayHike = dSegLengthHike.toString() + " " + dSegLengthHikeb;
+  console.log("dashArrayHike = " + dashArrayHike);
 
   dOffsetRun = 25;
   console.log(dOffsetRun);
   dOffsetBike = 100 - dSegLengthRun + dOffsetRun;
   console.log(dOffsetBike);
-  dOffsetSwim = 100 - (dSegLengthRun + dSegLengthBike) + (dOffsetRun + dOffsetBike);
+  dOffsetSwim = 100 - (dSegLengthRun + dSegLengthBike) + dOffsetRun;
   console.log(dOffsetSwim);
-  dOffsetRow =
+  dOffsetHike =
     100 -
     (dSegLengthRun + dSegLengthBike + dSegLengthSwim) +
-    (dOffsetRun + dOffsetBike + dOffsetSwim);
-  console.log(dOffsetRow);
+    dOffsetRun;
+  console.log(dOffsetHike);
 
   dOffRun = dOffsetRun.toString();
   dOffBike = dOffsetBike.toString();
   dOffSwim = dOffsetSwim.toString();
-  dOffRow = dOffsetRow.toString();
+  dOffHike = dOffsetHike.toString();
   console.log(dOffRun);
   console.log(dOffBike);
   console.log(dOffSwim);
-  console.log(dOffRow);
+  console.log(dOffHike);
 
   document
     .getElementById("segRun")
@@ -103,12 +103,12 @@ function drawDonutGraph() {
     .setAttribute("stroke-dashoffset", dOffsetSwim);
 
   document
-    .getElementById("segRow")
-    .setAttribute("stroke-dasharray", dashArrayRow);
+    .getElementById("segHike")
+    .setAttribute("stroke-dasharray", dashArrayHike);
 
   document
-    .getElementById("segRow")
-    .setAttribute("stroke-dashoffset", dOffsetRow);
+    .getElementById("segHike")
+    .setAttribute("stroke-dashoffset", dOffsetHike);
 }
 
 drawDonutGraph();

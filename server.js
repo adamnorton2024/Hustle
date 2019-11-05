@@ -1,9 +1,9 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-var passport   = require('passport')
-var session    = require('express-session')
-var bodyParser = require('body-parser')
+var passport = require("passport");
+var session = require("express-session");
+var bodyParser = require("body-parser");
 
 
 
@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // For Passport
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(session({ secret: "keyboard cat",resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 

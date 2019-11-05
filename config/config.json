@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "pivotlife101",
-    "database": "exampledb",
+    "password": "trichi123",
+    "database": "hustledb",
     "host": "localhost",
     "dialect": "mysql"
   },

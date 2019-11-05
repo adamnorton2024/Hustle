@@ -1,6 +1,11 @@
 <div class="form-group">
-    <label for="Activity">Activity</label>
-    <input placeholder="Activity" type="text" class="form-control" id="activity">
+    <label for="activitySelect">Select an Activity</label>
+    <select class="form-control" id="activitySelect">
+      <option>Running</option>
+      <option>Biking</option>
+      <option>Swimming</option>
+      <option>Hiking</option>
+    </select>
     <label for="Date">Date:</label>
     <input placeholder="Post Body" type="date" class="form-control" id="date"></input>
     <label for="Distance">Distance:</label>
@@ -12,6 +17,7 @@
 <div class="container" style="background-color: white">
     <ul>
         {{#each Users}}
+        <p id="name">{{name}}</p>
         <p>{{username}}</p>
         <p id="userId">{{id}}</p>
             {{#each activities}}
