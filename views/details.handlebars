@@ -1,109 +1,157 @@
 
     
-<div class="container">
+<div class="container animated zoomIn ">
         <div class="row">
             <div class="container col-sm-5 leaderboard">
                 <h1>Leaderboard</h1>
             <div class="row">
-                <div class="card">
+                <div class="card section text-white">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-2 date">
+                            <div class="col-sm-3 date text-center">
                                 <h5>1</h5>
                                 <p>Place</p>
                             </div>
                             <div class="col-md-3"><img class="img-fluid photos" src="/images/john.jpg"></div>
                             <div class="col-md-4">
                                 <h5>30 min HIIT Ride</h5>
-                                <p class="card-text">John Someguy</p>
+                                <p class="card-text" id="name">John Someguy</p>
                             </div>
                             <div class="col-md-2">
-                                <p class="card-text">150kj</p>
+                                <p class="card-text text-right" id="overall">150 kj</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card section text-white">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-2 date">
+                            <div class="col-sm-3 date text-center">
                                 <h5>2</h5>
                                 <p>Place</p>
                             </div>
                             <div class="col-md-3"><img class="img-fluid photos" src="/images/john.jpg"></div>
                             <div class="col-md-4">
                                 <h5>30 min HIIT Ride</h5>
-                                <p class="card-text">John Someguy</p>
+                                <p class="card-text" id="name">John Someguy</p>
                             </div>
                             <div class="col-md-2">
-                                <p class="card-text">150kj</p>
+                                <p class="card-text text-right" id="overall">150 kj</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card section text-white">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-2 date">
+                            <div class="col-sm-3 date text-center">
                                 <h5>3</h5>
                                 <p>Place</p>
                             </div>
                             <div class="col-md-3"><img class="img-fluid photos" src="/images/john.jpg"></div>
                             <div class="col-md-4">
                                 <h5>30 min HIIT Ride</h5>
-                                <p class="card-text">John Someguy</p>
+                                <p class="card-text" id="name">John Someguy</p>
                             </div>
                             <div class="col-md-2">
-                                <p class="card-text">150kj</p>
+                                <p class="card-text text-right" id="overall">150 kj</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
+                <div class="card section text-white">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3 date text-center">
+                                <h5>4</h5>
+                                <p>Place</p>
+                            </div>
+                            <div class="col-md-3"><img class="img-fluid photos" src="/images/john.jpg"></div>
+                            <div class="col-md-4">
+                                <h5>30 min HIIT Ride</h5>
+                                <p class="card-text" id="name">John Someguy</p>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="card-text text-right" id="overall">150 kj</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card section text-white">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3 date text-center">
+                                <h5>5</h5>
+                                <p>Place</p>
+                            </div>
+                            <div class="col-md-3"><img class="img-fluid photos" src="/images/john.jpg"></div>
+                            <div class="col-md-4">
+                                <h5>30 min HIIT Ride</h5>
+                                <p class="card-text" id="name">John Someguy</p>
+                            </div>
+                            <div class="col-md-2">
+                                <p class="card-text text-right" id="overall">150 kj</p>
+                            </div>
+                        
+                        </div>
+    
+                    </div>
+                    
+                </div>
 
             </div>
-            <div class="container col-sm-7 workout">
+            
+
+            </div>
+            
+            <div class="container col-sm-7 workout animated rotateInUpRight">
                     <div class="row workout-name">Biking</div>
-                    <div class="row workout-name">20 min Pop Ride </div>
+                    <div class="row workout-name">20 min HIIT Ride </div>
                     <div class="row"></div>
 
-<div class="card-deck mt-2">
-  <div class="card">
-   <div class="card-body">
+<div class="card-deck mt-2 ">
+  <div class="card section text-white">
+   <div class="card-body text-center">
       <h5 class="card-title"> Leaderboard Rank</h5>
-      <p class="card-text">You are currently ranked at #200</p>
+      <img src="/images/medal.jpg" class="card-img achievement-gained"  alt="Badges">
+      <p class="card-text d-flex justify-content-center"> Ranked at #200</p>
      
     </div>
   </div>
-  <div class="card">
-   <div class="card-body">
-      <h5 class="card-title">Earned Badges</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-     
-    </div>
-  </div>
+
 
 </div>
   <div class="row mt-5">
-    <div class="col-sm">Total Ouput</div>
-    <div class="col-sm">Distance</div>
-    <div class="col-sm">Calories</div>
+    <div class="col-sm text-center">
+        <div class="row d-flex justify-content-center stats " id="total-time">30 mins</div>
+        <div class="row d-flex justify-content-center ">Total Time</div>
+    </div>
+    <div class="col-sm text-center">
+        <div class="row d-flex justify-content-center stats " id="total-miles">15 miles</div>
+        <div class="row d-flex justify-content-center ">Total Distance</div>
+    </div>
+    <div class="col-sm text-center">
+        <div class="row d-flex justify-content-center stats" id="total-calories">1100</div>
+         <div class="row d-flex justify-content-center ">Total Calories</div>
+    </div>
   </div>
-    <div class="row mt-5">
-    <div class="col-sm">Avg Ouput</div>
-    <div class="col-sm">Avg Cadence</div>
-    <div class="col-sm">Avg Resistance</div>
-    <div class="col-sm">Avg Speed</div>
-  </div>
+   
+ <div class="card section text-white text-center mt-5">
+   <div class="card-body">
+      <h5 class="card-title">Earned Badges</h5>
+       <img src="/images/icon_100_miles.png" class="card-img achievement-gained"  alt="Badges">
+       <img src="/images/icon_40k.png" class="card-img achievement-gained"  alt="Badges">
+       <img src="/images/icon_early_riser.png" class="card-img achievement-gained"  alt="Badges">
+       <img src="/images/icon_1st_place.png" class="card-img achievement-gained"  alt="Badges">
 
-  <div class="card bg-light text-black mt-5">
-     <img src="/images/biking.jpg" class="card-img" alt="Bike Ride">
-    <h5 class="card-title">Output</h5>
-    <p class="card-text">This is where we will put an image or a graph </p>
-</div>
+    </div>
+
+
+
 </div>
 </div>
         </div>
