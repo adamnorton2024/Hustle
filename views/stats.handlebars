@@ -1,29 +1,37 @@
 
 
-<div class="container mb-4">
-  <div class="row mt-3"><h1><span id="total-workouts">197</span> Total Activities</h1></div>
-  <div class="row d-flex justify-content-between mt-0 section ">
+<div class="container mb-4 animated slideInDown">
+  <div class="row mt-3">
+    <div class="col-sm-6 mr-auto text-left p-0">
+      <h1><span id="total-workouts">197</span> Total Activities</h1>
+    </div>
+    <div class="col-sm-6 ml-auto text-right">
+      <p>Welcome, <span id="user-name"></span></p>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-between mt-0">
   
-    <div class="col-sm-2 mr-1 activity run" id="total-run">
+    <div class="col-sm-2 mr-1 activity run" >
       <div class=""><i class="fa fa-running "></i></div>
-      <h3>52</h3>
+      <h3 id="total-run">52</h3>
       <h4>Runs</h4>
   
     </div>
-    <div class="col-sm-2 ml-1 mr-1 activity bike" id="total-bike">
+    <div class="col-sm-2 ml-1 mr-1 activity bike">
       <div class=""><i class="fa fa-biking"></i></div>
-      <h3>99</h3>
+      <h3 id="total-bike">99</h3>
       <h4>Bike</h4>
   
     </div>
-    <div class="col-sm-2 ml-1 mr-1 activity swim" id="total-swim">
+    <div class="col-sm-2 ml-1 mr-1 activity swim">
       <div class=""><i class="fa fa-swimmer"></i></div>
-      <h3>23</h3>
+      <h3 id="total-swim">23</h3>
       <h4>Swim</h4>
     </div>
     <div class="col-sm-2 ml-1 activity hike" id="total-hike">
       <div class=""><i class="fal fa-hiking"></i></div>
-      <h3>23</h3>
+      <h3 id="total-swim">23</h3>
       <h4>Hike</h4>
     </div>
   
@@ -31,9 +39,17 @@
 </div>
 
 
+<div class="container animated zoomIn">
+  <div class="row d-flex justify-content-between">
+    <h1 class="col-sm-6 p-0">Activity History</h1>
+    <div class="col-sm-4 text-right p-0">
+      <button type="button" class="btn col-md-4 animated fadeIn" id="btn-add" data-toggle="modal"
+        data-target="#addModal">Add Activity...</button>
+    </div>
+  </div>
+</div>
 
-<h1 class="container">Activity History</h1>
-<div class="container section mt-2">
+<div class="container section mt-2 animated zoomIn">
   
   <div class="row mt-3">
     
@@ -115,7 +131,7 @@
   </div>
 </div>
 
-<div class="container mb-4">
+<div class="container mb-4 animated slideInUp">
   <div class="row mt-3">
     <h1>Achievements</h1>
   </div>
@@ -158,5 +174,38 @@
       <p></p>
     </div>
 
+  </div>
+</div>
+
+{{!-- Add Activity Modal --}}
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addActivityModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addActivityModalLabel">Add Activity</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="clearfix mb-4" action="POST">
+          
+          <label for="activitySelect">Select an Activity</label>
+          <select class="form-control mb-3" id="activitySelect">
+            <option>Running</option>
+            <option>Biking</option>
+            <option>Swimming</option>
+            <option>Hiking</option>
+          </select>
+          <label for="Date">Date:</label>
+          <input placeholder="Post Body" type="date" class="form-control mb-3" id="date"></input>
+          <label for="Distance">Distance:</label>
+          <input placeholder="Post Body" type="text" class="form-control mb-3" id="distance"></input>
+
+          <button type="button" class="btn btn-primary mt-4" id="submit">Submit</button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
