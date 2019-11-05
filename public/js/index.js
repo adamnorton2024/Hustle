@@ -164,10 +164,12 @@ $.get("/api/activities", function(data) {
   console.log(totalSwim);
   console.log(totalRunning);
   console.log(totalBiking);
+  var total = totalRunning+totalSwim+totalHike+totalBiking;
   $("#total-run").text(totalRunning);
   $("#total-swim").text(totalSwim);
   $("#total-hike").text(totalHike);
   $("#total-bike").text(totalBiking);
+  $("#total-workouts").text(total);
   graph();
 
   for (var i = 0; i < 5; i++) {
