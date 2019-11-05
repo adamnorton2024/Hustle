@@ -65,9 +65,7 @@ function graph() {
     dOffsetSwim = 100 - (dSegLengthRun + dSegLengthBike) + dOffsetRun;
     console.log(dOffsetSwim);
     dOffsetHike =
-      100 -
-      (dSegLengthRun + dSegLengthBike + dSegLengthSwim) +
-      dOffsetRun;
+      100 - (dSegLengthRun + dSegLengthBike + dSegLengthSwim) + dOffsetRun;
     console.log(dOffsetHike);
 
     dOffRun = dOffsetRun.toString();
