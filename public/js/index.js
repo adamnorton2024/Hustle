@@ -136,7 +136,6 @@ var totalBiking;
 $.get("/api/activities", function(data) {
   console.log(data);
   var userArray = [];
-  var sortedArray = [];
   var user = $("#userId").text();
   console.log(user);
   for (var i = 0; i < data.length; i++) {
@@ -145,9 +144,7 @@ $.get("/api/activities", function(data) {
       userArray.push(data[i]);
     }
   }
-  sortedArray = userArray.sort();
   console.log(userArray);
-  console.log(sortedArray);
   totalHike = 0;
   totalSwim = 0;
   totalRunning = 0;

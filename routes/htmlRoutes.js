@@ -1,31 +1,26 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Load index page
-  app.get("/", function(req, res) {
-    db.User.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
+  app.get("/", function (req, res) {
+    res.render("index");
   });
 
-  app.get("/stats", function(req, res) {
+  app.get("/stats", function (req, res) {
     res.render("stats");
   });
 
-  app.get("/details", function(req, res) {
+  app.get("/details", function (req, res) {
     res.render("details");
   });
 
   // Load example page and pass in an example by id
-  app.get("/:username", function(req, res) {
+  app.get("/:username", function (req, res) {
     var requestID = req.params.username;
     db.User.findAll({
       where: { username: requestID },
       include: [db.activities]
-    }).then(function(data) {
+    }).then(function (data) {
       console.log(data);
       res.render("stats", {
         Users: data
@@ -34,7 +29,7 @@ module.exports = function(app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("*", function (req, res) {
     res.render("404");
   });
 };
