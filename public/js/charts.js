@@ -1,8 +1,8 @@
-// Type of workout totals
-var numRuns = 52;
-var numBike = 99;
-var numSwim = 23;
-var numHike = 23;
+// // Type of workout totals
+var numRuns = 34;
+var numBike = 9;
+var numSwim = 123;
+var numHike = 233;
 
 // donut segment lengths
 var dSegLengthRun;
@@ -96,7 +96,7 @@ function drawDonutGraph() {
 
   document
     .getElementById("segSwim")
-    .setAttribute("stroke-dasharray", dashArrayBike);
+    .setAttribute("stroke-dasharray", dashArraySwim);
 
   document
     .getElementById("segSwim")
@@ -112,3 +112,7 @@ function drawDonutGraph() {
 }
 
 drawDonutGraph();
+
+$("#act0").click( function(){
+
+});
