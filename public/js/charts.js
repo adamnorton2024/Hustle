@@ -1,3 +1,4 @@
+
 function graph() {
   // Type of workout totals
   var numRuns = totalRunning;
@@ -95,7 +96,7 @@ function graph() {
 
     document
       .getElementById("segSwim")
-      .setAttribute("stroke-dasharray", dashArrayBike);
+      .setAttribute("stroke-dasharray", dashArraySwim);
 
     document
       .getElementById("segSwim")
@@ -112,3 +113,4 @@ function graph() {
 
   drawDonutGraph();
 }
+
