@@ -1,5 +1,4 @@
 
-
 #home {
   background-color: #222;
   background-image: url(../images/logo_hustle.png);
@@ -90,6 +89,18 @@ p, h5 {
 #btn-login:hover, #btn-new-user:hover {
   background-color: #c4aa3b;
   color: black;
+}
+
+#btn-add{
+  background-color: darkred;
+  color: white;
+  border: none;
+}
+
+#btn-add:hover{
+  background-color: crimson;
+  color: white;
+  border: none;
 }
 
 #submit, #login {
