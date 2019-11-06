@@ -135,6 +135,7 @@ var totalBiking;
 //displaying data for the data for the user.
 $.get("/api/activities", function (data) {
   console.log(data);
+  var username = $("#username").text();
   var userArray = [];
   var user = $("#userId").text();
   console.log(user);
@@ -173,6 +174,7 @@ $.get("/api/activities", function (data) {
   graph();
 
   for (var i = 0; i < 5; i++) {
+    console.log(username)
     if (i === 0) {
       var date = userArray[0].workoutDate;
       $("#date0").text(date.substring(5, 10));
@@ -180,22 +182,35 @@ $.get("/api/activities", function (data) {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("bike");
+
         $(otherid).addClass("fa-biking");
+                $(idchange).on("click", function() {
+                  window.open("http://localhost:3000/" + username + "/biking");
+                });
       } else if (userArray[i].activity == "Running") {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("run");
         $(otherid).addClass("fa-running");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/running");
+        });
       } else if (userArray[i].activity == "Swimming") {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("swim");
         $(otherid).addClass("fa-swimmer");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/swimming");
+        });
       } else if (userArray[i].activity == "Hiking") {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("hike");
         $(otherid).addClass("fa-hiking");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/hiking");
+        });
       }
     }
     if (i === 1) {
@@ -206,21 +221,33 @@ $.get("/api/activities", function (data) {
         var otherid = "#i" + i;
         $(idchange).addClass("bike");
         $(otherid).addClass("fa-biking");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/biking");
+        });
       } else if (userArray[i].activity == "Running") {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("run");
         $(otherid).addClass("fa-running");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/running");
+        });
       } else if (userArray[i].activity == "Swimming") {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("swim");
         $(otherid).addClass("fa-swimmer");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/swimming");
+        });
       } else if (userArray[i].activity == "Hiking") {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("hike");
         $(otherid).addClass("fa-hiking");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/hiking");
+        });
       }
     }
     if (i === 2) {
@@ -231,21 +258,33 @@ $.get("/api/activities", function (data) {
         var otherid = "#i" + i;
         $(idchange).addClass("bike");
         $(otherid).addClass("fa-biking");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/biking");
+        });
       } else if (userArray[i].activity == "Running") {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("run");
         $(otherid).addClass("fa-running");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/running");
+        });
       } else if (userArray[i].activity == "Swimming") {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("swim");
         $(otherid).addClass("fa-swimmer");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/swimming");
+        });
       } else if (userArray[i].activity == "Hiking") {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("hike");
         $(otherid).addClass("fa-hiking");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/hiking");
+        });
       }
     }
     if (i === 3) {
@@ -256,21 +295,33 @@ $.get("/api/activities", function (data) {
         var otherid = "#i" + i;
         $(idchange).addClass("bike");
         $(otherid).addClass("fa-biking");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/biking");
+        });
       } else if (userArray[i].activity == "Running") {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("run");
         $(otherid).addClass("fa-running");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/running");
+        });
       } else if (userArray[i].activity == "Swimming") {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("swim");
         $(otherid).addClass("fa-swimmer");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/swimming");
+        });
       } else if (userArray[i].activity == "Hiking") {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("hike");
         $(otherid).addClass("fa-hiking");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/hiking");
+        });
       }
     }
     if (i === 4) {
@@ -281,21 +332,33 @@ $.get("/api/activities", function (data) {
         var otherid = "#i" + i;
         $(idchange).addClass("bike");
         $(otherid).addClass("fa-biking");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/biking");
+        });
       } else if (userArray[i].activity == "Running") {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("run");
         $(otherid).addClass("fa-running");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/running");
+        });
       } else if (userArray[i].activity == "Swimming") {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("swim");
         $(otherid).addClass("fa-swimmer");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/swimming");
+        });
       } else if (userArray[i].activity == "Hiking") {
         var idchange = "#act" + i;
         var otherid = "#i" + i;
         $(idchange).addClass("hike");
         $(otherid).addClass("fa-hiking");
+        $(idchange).on("click", function() {
+          window.open("http://localhost:3000/" + username + "/hiking");
+        });
       }
     }
   }
