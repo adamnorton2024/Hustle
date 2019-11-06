@@ -1,4 +1,5 @@
 
+
 #home {
   background-color: #222;
   background-image: url(../images/logo_hustle.png);
@@ -14,6 +15,10 @@
 body {
   background-color: #111;
   color: white;
+}
+
+.card{
+  margin-top: .5em;
 }
 
 .stats {
