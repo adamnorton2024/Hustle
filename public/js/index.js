@@ -152,20 +152,20 @@ $.get("/api/activities", function (data) {
   totalBiking = 0;
   for (var i = 0; i < userArray.length; i++) {
     if (userArray[i].activity == "Hiking") {
-      totalHike += userArray[i].distances;
+      totalHike++;
     } else if (userArray[i].activity == "Swimming") {
-      totalSwim += userArray[i].distances;
+      totalSwim++;
     } else if (userArray[i].activity == "Running") {
-      totalRunning += userArray[i].distances;
+      totalRunning++;
     } else if (userArray[i].activity == "Biking") {
-      totalBiking += userArray[i].distances;
+      totalBiking++;
     }
   }
   console.log(totalHike);
   console.log(totalSwim);
   console.log(totalRunning);
   console.log(totalBiking);
-  var total = totalRunning+totalSwim+totalHike+totalBiking;
+  var total = userArray.length;
   $("#total-run").text(totalRunning);
   $("#total-swim").text(totalSwim);
   $("#total-hike").text(totalHike);
