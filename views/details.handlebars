@@ -14,8 +14,8 @@
                             </div>
                             <div class="col-md-3"><img class="img-fluid photos" src="/images/john.jpg"></div>
                             <div class="col-md-4">
-                                <h5>30 min HIIT Ride</h5>
-                                <p class="card-text" id="name">John Someguy</p>
+                                <h5>{{entry1.activity.distances}} mi</h5>
+                                <p class="card-text" id="name">{{entry1.user.name}}</p>
                             </div>
                             <div class="col-md-2">
                                 <p class="card-text text-right" id="overall">150 kj</p>
@@ -33,8 +33,8 @@
                             </div>
                             <div class="col-md-3"><img class="img-fluid photos" src="/images/john.jpg"></div>
                             <div class="col-md-4">
-                                <h5>30 min HIIT Ride</h5>
-                                <p class="card-text" id="name">John Someguy</p>
+                                <h5>{{entry2.activity.distances}} mi</h5>
+                                <p class="card-text" id="name">{{entry2.user.name}}</p>
                             </div>
                             <div class="col-md-2">
                                 <p class="card-text text-right" id="overall">150 kj</p>
@@ -52,8 +52,8 @@
                             </div>
                             <div class="col-md-3"><img class="img-fluid photos" src="/images/john.jpg"></div>
                             <div class="col-md-4">
-                                <h5>30 min HIIT Ride</h5>
-                                <p class="card-text" id="name">John Someguy</p>
+                                <h5>{{entry3.activity.distances}} mi</h5>
+                                <p class="card-text" id="name">{{entry3.user.name}}</p>
                             </div>
                             <div class="col-md-2">
                                 <p class="card-text text-right" id="overall">150 kj</p>
@@ -71,8 +71,8 @@
                             </div>
                             <div class="col-md-3"><img class="img-fluid photos" src="/images/john.jpg"></div>
                             <div class="col-md-4">
-                                <h5>30 min HIIT Ride</h5>
-                                <p class="card-text" id="name">John Someguy</p>
+                                <h5>{{entry4.activity.distances}} mi</h5>
+                                <p class="card-text" id="name">{{entry4.user.name}}</p>
                             </div>
                             <div class="col-md-2">
                                 <p class="card-text text-right" id="overall">150 kj</p>
@@ -90,8 +90,8 @@
                             </div>
                             <div class="col-md-3"><img class="img-fluid photos" src="/images/john.jpg"></div>
                             <div class="col-md-4">
-                                <h5>30 min HIIT Ride</h5>
-                                <p class="card-text" id="name">John Someguy</p>
+                                <h5>{{entry5.activity.distances}} mi</h5>
+                                <p class="card-text" id="name">{{entry5.user.name}}</p>
                             </div>
                             <div class="col-md-2">
                                 <p class="card-text text-right" id="overall">150 kj</p>
@@ -109,7 +109,7 @@
             </div>
             
             <div class="container col-sm-7 workout animated zoomIn">
-                    <div class="row workout-name" id="activity-name">Biking</div>
+                    <div class="row workout-name" id="activity-name">{{entry1.activity.activity}}</div>
                     <div class="row workout-name" id="workout-type">20 min HIIT Ride </div>
                     <div class="row"></div>
 
@@ -118,7 +118,7 @@
    <div class="card-body text-center">
       <h5 class="card-title"> Leaderboard Rank</h5>
       <img src="/images/medal.jpg" class="card-img achievement-gained"  alt="Badges">
-      <p class="card-text d-flex justify-content-center"> Ranked at #200</p>
+      <p class="card-text d-flex justify-content-center">{{rank}}</p>
      
     </div>
   </div>
