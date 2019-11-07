@@ -41,7 +41,9 @@ require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
 
-if (process.env.NODE_ENV === "test") {
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 
