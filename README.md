@@ -15,4 +15,9 @@
 2.  MySQL
 3.  Sequelize JS
 4.  Visual Code Studio
-5.  
+5.  Bootstrap
+
+To Use:
+1. Run from the deploye Heroku app listed at the top of the page. 
+2. To see sample data login as an existing user such as username: "cat", and password: "password"
+3. From the screen you're presented with you can see the 5 latest activities.  You may add a new one and the graphs will update. You may also click on the bar associated with any activity, and see the detailed stats and leaderboard for that activity. 
